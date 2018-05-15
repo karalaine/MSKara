@@ -123,10 +123,10 @@
   <data name="Language.PrimaryButtonText" xml:space="preserve">
     <value>Choose</value>
   </data>
-  <data name="Language.Selected" xml:space="preserve">
+  <data name="Selected" xml:space="preserve">
     <value>Currently selected language. You can change it later in settings.</value>
   </data>
-  <data name="Language.Title" xml:space="preserve">
+  <data name="Title" xml:space="preserve">
     <value>Choose preferred language for news:</value>
   </data>
 </root>
