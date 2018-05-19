@@ -10,38 +10,20 @@ using System.Threading.Tasks;
 
 namespace MSKara.Model
 {
-	class Language
-	{
-		string language;
-		string country;
-		string domainToUse;
-		string languageCode;
-		string useToRetrieveLists;
-		string mostPopularName;
-		string latestName;
-		string genericNewsURLPart;
-		public static Task<List<Language>> LoadAsync()
-		{
-			return Task.Run(async () =>
-			{
-				var languages = new List<Language>();
-				string json = await NetworkUtils.LoadApiToStringAsync("listLanguages", false);
-				try
-				{
-					var response = JObject.Parse(json);
-					var results = response["responseData"]["supportedLanguages"].Children().ToList();
-
-					foreach (var result in results)
-					{
-						languages.Add(result.ToObject<Language>());
-					}
-				}
-				catch (JsonReaderException)
-				{
-
-				}
-				return languages;
-			});
-		}
-	}
+    public class Language
+    {
+        [JsonProperty("language")]
+        public string LanguageName { get; set; }
+        public string Country { get; set; }
+        public string DomainToUse { get; set; }
+        public string LanguageCode { get; set; }
+        public string UseToRetrieveLists { get; set; }
+        public string MostPopularName { get; set; }
+        public string LatestName { get; set; }
+        public string GenericNewsURLPart { get; set; }
+        public override string ToString()
+        {
+            return string.Format("{0} - {1}",Country, LanguageName);
+        }
+    }
 }

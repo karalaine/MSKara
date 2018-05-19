@@ -9,5 +9,13 @@
     mc:Ignorable="d"
    >
     <Grid>
+        <StackPanel>
+        <TextBlock x:Uid="TitleText" />
+        <ComboBox x:Name="LanguageCompoBox" x:Uid="LanguageCombo" Width="296" 
+          ItemsSource="{x:Bind LanguageViewModel.Languages,  Mode=OneTime}"
+          SelectedItem="{x:Bind LanguageViewModel.SelectedLanguage, Mode=TwoWay}"
+                  SelectedValuePath="Content"
+          Height="31"/>
+        </StackPanel>
     </Grid>
 </ContentDialog>

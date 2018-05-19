@@ -123,10 +123,10 @@
   <data name="Language.PrimaryButtonText" xml:space="preserve">
     <value>Valitse</value>
   </data>
-  <data name="Selected" xml:space="preserve">
-    <value>Tämän hetkinen kielivalinta. Voit vaihtaa kielen asetuksista</value>
+  <data name="LanguageCombo.Header" xml:space="preserve">
+    <value>Kieli</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>Valitse haluamasi uutisten kieli:</value>
+  <data name="TitleText.Text" xml:space="preserve">
+    <value>Choose preferred language for news:</value>
   </data>
 </root>

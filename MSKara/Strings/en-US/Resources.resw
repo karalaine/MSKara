@@ -123,6 +123,9 @@
   <data name="Language.PrimaryButtonText" xml:space="preserve">
     <value>Choose</value>
   </data>
+  <data name="LanguageCombo.Header" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="Selected" xml:space="preserve">
     <value>Currently selected language. You can change it later in settings.</value>
   </data>

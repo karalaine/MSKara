@@ -1,4 +1,7 @@
 ﻿using MSKara.Model;
+using MSKara.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace MSKara.ViewModel
 {
-	class LanguageViewModel : ViewModelBase
+	public class LanguageViewModel : ViewModelBase
 	{
-		ResetableObservableCollection<Language> _languages;
+		private ResetableObservableCollection<Language> _languages;
+        private Language _selectedLanguage;
 		public LanguageViewModel()
 		{
 			Languages = new ResetableObservableCollection<Language>();
-
 		}
 
 		public ResetableObservableCollection<Language> Languages
@@ -23,14 +26,38 @@ namespace MSKara.ViewModel
 			private set
 			{
 				Set(ref _languages, value);
-			}
-		}
-		private async Task LoadLanguagesAsync()
+                SelectedLanguage = value.FirstOrDefault();
+            }
+        }
+
+        public Language SelectedLanguage {
+            get => _selectedLanguage;
+            set => Set(ref _selectedLanguage, value);
+        }
+        public void UpdateToSettings()
+        {
+            Settings.UsedLanguage = _selectedLanguage.UseToRetrieveLists;
+            Settings.DomainToUse = _selectedLanguage.DomainToUse;
+
+        }
+        public async Task LoadLanguagesAsync()
 		{
 			await RunTaskAsync(async () =>
 			{
-				var items = await Language.LoadAsync();
-				Languages.Reset(items);
+
+                string json = await NetworkUtils.LoadApiToStringAsync("api/?act=listLanguages", false);
+                try
+                {
+                    var response = JObject.Parse(json);
+                    var results = response["responseData"]["supportedLanguages"].Children().ToList();
+                    Languages.Reset(results.Select((item => item.ToObject<Language>())));
+                    SelectedLanguage = Languages.FirstOrDefault();
+                    UpdateToSettings();
+                }
+                catch (JsonReaderException)
+                {
+
+                }
 			});
 		}
 	}
