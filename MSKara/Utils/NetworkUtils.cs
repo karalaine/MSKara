@@ -23,7 +23,7 @@ namespace MSKara.Utils
 			string domain = domainSelected ? Settings.DomainToUse : "high.fi";
 			string apikey = Settings.APIKey;
 			string
-				url = string.Format("http://{0}/{1}&APIKEY={2}&deviceID={3}&appID={4}", domain, api, apikey, clientId, desc);
+				url = string.Format("http://{0}/{1}APIKEY={2}&deviceID={3}&appID={4}", domain, api, apikey, clientId, desc);
 			return await LoadUrlToStringAsync(url);
 		}
 	}

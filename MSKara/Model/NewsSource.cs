@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace MSKara.Model
 {
-	enum PaywallType
+	public enum PaywallType
 	{
 		Free,
 		StrictPaywall,
 		MonthlyLimit,
 		Partial
 	}
-	class NewsSource
+    public class NewsSource
 	{
-		string sourceName;
-		int sourceID;
-		PaywallType paywall;
+        public string SourceName;
+        public int SourceID;
+        public PaywallType Paywall;
 	}
 }

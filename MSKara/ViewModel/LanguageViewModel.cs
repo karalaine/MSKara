@@ -38,14 +38,15 @@ namespace MSKara.ViewModel
         {
             Settings.UsedLanguage = _selectedLanguage.UseToRetrieveLists;
             Settings.DomainToUse = _selectedLanguage.DomainToUse;
-
+            Settings.GenericNewsURLPart = _selectedLanguage.GenericNewsURLPart;
+            Settings.UseToRetrieveLists = _selectedLanguage.UseToRetrieveLists;
         }
         public async Task LoadLanguagesAsync()
 		{
 			await RunTaskAsync(async () =>
 			{
 
-                string json = await NetworkUtils.LoadApiToStringAsync("api/?act=listLanguages", false);
+                string json = await NetworkUtils.LoadApiToStringAsync("api/?act=listLanguages&", false);
                 try
                 {
                     var response = JObject.Parse(json);

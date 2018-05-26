@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 
 namespace MSKara.Model
 {
-	class Category
-	{
-		string title;
-		string highLight;
-		DateTime availableUntil;
-		int sectionID;
-		int depth;
-		string htmlFileName;
-		int parentSectionID;
+	public class Category
+    {
+        public string Title;
+        public bool Highlight;
+        public DateTime AvailableUntil;
+        public int SectionID;
+        public int Depth;
+        public string HtmlFilename;
+        public int ParentSectionID;
 
-	}
+        public override string ToString()
+        {
+            return Title;
+        }
+    }
 }

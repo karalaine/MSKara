@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace MSKara.Model
 {
-	class Feed
+    public class Feed
 	{
-		string title;
-		string link;
-		string author;
-		string description;
-		string type;
-		List<NewsItem> entries;
+        public string Title;
+        public string Link;
+        public string Author;
+        public string Description;
+        public string Type;
+		public List<NewsItem> Entries;
 	}
 }

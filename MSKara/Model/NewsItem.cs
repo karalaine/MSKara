@@ -1,18 +1,18 @@
 ﻿namespace MSKara.Model
 {
-	internal class NewsItem
+	public class NewsItem
 	{
 
-		string title;
-		string clickTrackingLink;
-		string author;
-		string publishedDateJS;
-		string shortDescription;
-		string originalURL;
-		string originalMobileURL;
-		int articleID;
-		int sectionID;
-		int sourceID;
-		bool highlight;
+		public string Title;
+		public string ClickTrackingLink;
+		public string Author;
+		public string PublishedDateJS;
+		public string ShortDescription;
+		public string OriginalURL;
+		public string OriginalMobileURL;
+		public int ArticleID;
+		public int SectionID;
+		public int SourceID;
+        public bool Highlight;
 	}
 }

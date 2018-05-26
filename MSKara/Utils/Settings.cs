@@ -18,8 +18,29 @@ namespace MSKara.Utils
 		{
 			throw new NotImplementedException();
 		}
-
-		public static string UsedLanguage
+        public static string GenericNewsURLPart
+        {
+            get
+            {
+                return roamingSettings.Values["genericNewsURLPart"] as string;
+            }
+            set
+            {
+                roamingSettings.Values["genericNewsURLPart"] = value;
+            }
+        }
+        public static string UseToRetrieveLists
+        {
+            get
+            {
+                return roamingSettings.Values["useToRetrieveLists"] as string;
+            }
+            set
+            {
+                roamingSettings.Values["useToRetrieveLists"] = value;
+            }
+        }
+        public static string UsedLanguage
 		{
 			get
 			{
